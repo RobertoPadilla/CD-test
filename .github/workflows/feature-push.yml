@@ -18,3 +18,4 @@ jobs:
           host: amongcode.com
           user: amongcod
           key: ${{ secrets.PRIVATE_KEY}}
+          args: "-tt"
