@@ -9,13 +9,13 @@ on:
 jobs:
   test-feature:
     runs-on: ubuntu-latest
-    environment: Production
+    environment: pre-production
 
     steps:
       - name: "Printing"
         uses: fifsky/ssh-action@master
         with:
-          command: echo path sandbox ${{ secrets.SANDBOX_PATH }}
+          command: echo path sandbox ${{ secrets.DEPLOY_PATH }}
           host: amongcode.com
           user: amongcod
           key: ${{ secrets.PRIVATE_KEY }}
