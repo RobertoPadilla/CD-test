@@ -17,5 +17,5 @@ jobs:
           command: pwd
           host: ${{ secrets.HOST }}
           user: amongcod
-          key: ${{ secrets.PRIVATE_KEY}} 
+          key: ${{ secrets.PRIVATE_KEY }} 
           args: "-tt -vvv"
