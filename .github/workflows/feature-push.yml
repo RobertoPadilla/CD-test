@@ -1,22 +1,33 @@
-name: 'CD test - feature branch'
+# name: 'CD test - feature branch'
+name: Echo out branch values
 
 on: 
   push:
     branches:
     - 'feature/**' 
+    
+    run: | 
+      echo github.base_ref: ${{ github.base_ref }}
+      echo github.head_ref: ${{ github.head_ref }}
+      echo github.ref: ${{ github.ref }}
+
+# on: 
+#   push:
+#     branches:
+#     - 'feature/**' 
   
 
-jobs:
-  test-feature:
-    runs-on: ubuntu-latest
-    environment: pre-production
+# jobs:
+#   test-feature:
+#     runs-on: ubuntu-latest
+#     environment: pre-production
 
-    steps:
-      - name: "Printing"
-        uses: fifsky/ssh-action@master
-        with:
-          command: echo path sandbox ${{ secrets.DEPLOY_PATH }}
-          host: amongcode.com
-          user: amongcod
-          key: ${{ secrets.PRIVATE_KEY }}
-          args: "-tt"
+#     steps:
+#       - name: "Printing"
+#         uses: fifsky/ssh-action@master
+#         with:
+#           command: echo path sandbox ${{ secrets.DEPLOY_PATH }}
+#           host: amongcode.com
+#           user: amongcod
+#           key: ${{ secrets.PRIVATE_KEY }}
+#           args: "-tt"
