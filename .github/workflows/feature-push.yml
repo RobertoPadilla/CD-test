@@ -9,10 +9,12 @@ on:
 jobs:
 
   get-branch-name:
-    run: | 
-      echo github.base_ref: ${{ github.base_ref }}
-      echo github.head_ref: ${{ github.head_ref }}
-      echo github.ref: ${{ github.ref }}
+    steps:
+      - name: "Doing"
+        run: | 
+          echo github.base_ref: ${{ github.base_ref }}
+          echo github.head_ref: ${{ github.head_ref }}
+          echo github.ref: ${{ github.ref }}
 
 # on: 
 #   push:
