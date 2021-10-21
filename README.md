@@ -6,3 +6,4 @@ Se tienen dos entornos: producción y preproducción. Haciendo push en una featu
 
 
 - Cambio en feature
+- Cambio en master
