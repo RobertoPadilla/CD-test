@@ -12,10 +12,14 @@ jobs:
     environment: pre-production
 
     steps:
-      # - name: Get branch name
-      #   id: branch-name
-      #   uses: tj-actions/branch-names@v5
-
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v5
+        run: |
+          echo --------------------------------
+          echo ${{ steps.branch-name.outputs.current_branch }}
+          echo --------------------------------
+        
       - name: "Deploying"
         uses: fifsky/ssh-action@master
         with:
