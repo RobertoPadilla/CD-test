@@ -13,3 +13,9 @@ jobs:
     steps:
       - name: "Printing"
         run: echo feature
+        uses: fifsky/ssh-action@master
+        with:
+          command: pwd
+          host: ${{ secrets.HOST }}
+          user: amongcod
+          key: ${{ secrets.PRIVATE_KEY}} 
