@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: "Printing"
-        uses: fifsky/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
-          command: pwd
           host: ${{ secrets.HOST }}
-          user: amongcod
-          key: ${{ secrets.PRIVATE_KEY }} 
-          args: "-tt -vvv"
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          script: pwd
