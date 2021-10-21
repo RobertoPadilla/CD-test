@@ -1,0 +1,17 @@
+name: 'CD test - master branch'
+author: 'RobertoPadilla'
+description: 'Every push on master deploys it over production environment'
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  test-master:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Printing"
+        run: echo master

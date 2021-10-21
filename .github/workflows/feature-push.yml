@@ -1,0 +1,17 @@
+name: 'CD test - feature branch'
+author: 'RobertoPadilla'
+description: 'Every push on featue deploys it over pre-production environment'
+
+on: 
+  push:
+    branches:
+    - 'feature/**' 
+  
+
+jobs:
+  test-feature:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Printing"
+        run: echo feature
