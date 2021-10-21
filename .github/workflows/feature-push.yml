@@ -20,10 +20,9 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            echo ${{ steps.branch-name.outputs.current_branch }}
-#            cd ${{ secrets.DEPLOY_PATH }}
-#            git checkout $GITHUB_REF
-#            git pull origin $GITHUB_REF
+           cd ${{ secrets.DEPLOY_PATH }}
+           git checkout ${{ steps.branch-name.outputs.current_branch }}
+           git pull origin ${{ steps.branch-name.outputs.current_branch }}
           host: amongcode.com
           user: amongcod
           key: ${{ secrets.PRIVATE_KEY }}
