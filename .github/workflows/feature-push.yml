@@ -1,5 +1,5 @@
 name: 'CD test - feature branch'
-author: 'RobertoPadilla'
+
 description: 'Every push on featue deploys it over pre-production environment'
 
 on: 
