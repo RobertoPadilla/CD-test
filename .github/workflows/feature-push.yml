@@ -1,7 +1,5 @@
 name: 'CD test - feature branch'
 
-description: 'Every push on featue deploys it over pre-production environment'
-
 on: 
   push:
     branches:

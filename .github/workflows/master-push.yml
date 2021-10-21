@@ -1,7 +1,5 @@
 name: 'CD test - master branch'
 
-description: 'Every push on master deploys it over production environment'
-
 on:
   push:
     branches:
