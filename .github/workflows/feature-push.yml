@@ -18,3 +18,4 @@ jobs:
           host: ${{ secrets.HOST }}
           user: amongcod
           key: ${{ secrets.PRIVATE_KEY}} 
+          args:"-tt -vvv"
