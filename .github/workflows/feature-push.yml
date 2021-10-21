@@ -10,8 +10,9 @@ jobs:
 
   get-branch-name:
     steps:
+      runs-on: ubuntu-latest
       - name: "Doing"
-        run: | 
+      - run: | 
           echo github.base_ref: ${{ github.base_ref }}
           echo github.head_ref: ${{ github.head_ref }}
           echo github.ref: ${{ github.ref }}
