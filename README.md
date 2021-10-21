@@ -7,4 +7,4 @@ Se tienen dos entornos: producción y preproducción. Haciendo push en una featu
 
 - Cambio en feature
 
-- Cambio en feature y despliegue en pre-produccion, viendo si se añade otro host a la lista de known hosts, otro
+- Cambio en feature y despliegue en pre-produccion, viendo si se añade otro host a la lista de known hosts, otro, otro
