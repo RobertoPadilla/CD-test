@@ -1,40 +1,43 @@
-# name: 'CD test - feature branch'
-name: Echo out branch values
+name: 'CD test - feature branch'
 
 on: 
   push:
     branches:
     - 'feature/**' 
-
-jobs:
-
-  get-branch-name:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Doing"
-        run: | 
-          echo github.ref: ${{ github.ref }}
-          echo $GITHUB_REF
-          echo $GITHUB_HEAD_REF
-          echo $GITHUB_BASE_REF
-
-# on: 
-#   push:
-#     branches:
-#     - 'feature/**' 
   
 
-# jobs:
-#   test-feature:
-#     runs-on: ubuntu-latest
-#     environment: pre-production
+jobs:
+  test-feature:
+    runs-on: ubuntu-latest
+    environment: pre-production
 
-#     steps:
-#       - name: "Printing"
-#         uses: fifsky/ssh-action@master
-#         with:
-#           command: echo path sandbox ${{ secrets.DEPLOY_PATH }}
-#           host: amongcode.com
-#           user: amongcod
-#           key: ${{ secrets.PRIVATE_KEY }}
-#           args: "-tt"
+    steps:
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v5
+        
+      - name: Running on the default branch.
+        if: steps.branch-name.outputs.is_default == 'true'
+        run: |
+          echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "Running on default: main".
+      
+      - name: Running on a pull request branch.
+        if: steps.branch-name.outputs.is_default == 'false'
+        run: |
+          echo "Running on pr: ${{ steps.branch-name.outputs.current_branch }}"
+        # Outputs: "Running on pr: feature/test".
+
+    steps:
+      - name: "Deploying"
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            echo ${{ steps.branch-name.outputs.current_branch }}
+#            cd ${{ secrets.DEPLOY_PATH }}
+#            git checkout $GITHUB_REF
+#            git pull origin $GITHUB_REF
+          host: amongcode.com
+          user: amongcod
+          key: ${{ secrets.PRIVATE_KEY }}
+          args: "-tt"
