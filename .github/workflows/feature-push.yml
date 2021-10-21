@@ -9,8 +9,8 @@ on:
 jobs:
 
   get-branch-name:
+    runs-on: ubuntu-latest
     steps:
-      runs-on: ubuntu-latest
       - name: "Doing"
       - run: | 
           echo github.base_ref: ${{ github.base_ref }}
