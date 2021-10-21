@@ -15,8 +15,6 @@ jobs:
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5
-      
-      - name: Print branch name
         run: |
           echo --------------------------------
           echo ${{ steps.branch-name.outputs.current_branch }}
