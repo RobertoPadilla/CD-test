@@ -16,6 +16,6 @@ jobs:
         with:
           host: amongcode.com
           username: amongcod
-          password: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: pwd
