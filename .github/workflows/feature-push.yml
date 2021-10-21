@@ -14,7 +14,7 @@ jobs:
       - name: "Printing"
         uses: fifsky/ssh-action@master
         with:
-          command: pwd
+          command: echo running on branch ${GITHUB_REF##*/}
           host: amongcode.com
           user: amongcod
           key: ${{ secrets.PRIVATE_KEY}}
